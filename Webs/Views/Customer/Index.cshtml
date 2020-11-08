@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#CustomerContainer').jtable({
+            title: 'Customer Reference List',
+            paging: true,
+            pageSize: 25,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '@Url.Action("CustommerReferenceList")',
+                deleteAction: '@Url.Action("DeleteCustomerCode")',
+                updateAction: '@Url.Action("UpdateCustomerCode")',
+                createAction: '@Url.Action("CreateCustomerCode")'
+            },
+            fields: {
+                ReferenceId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                 CustomerCode: {
+                    title: 'Customer Code',
+                     width: '12%'
+                },
+                Name: {
+                    title: 'Name',
+                    width: '23%'
+                },
+
+
+            }
+        });
+
+        //Load student list from server
+        $('#LoadRecordsButton').click(function (e) {
+                e.preventDefault();
+                $('#CustomerContainer').jtable('load', {
+                    name: $('#Name').val(),
+
+                });
+            });
+          $('#LoadRecordsButton').click();
+    });
+
+</script>
+<div class="heads" style="background: url(/public/img/brewery-back1.jpg) 50% 27%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><span>//</span> Customer Codes</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content">
+    <div class="container">
+        <div class="site-container">
+            <div class="filtering">
+                <form runat="server">
+                    <label>
+                        Name:
+                        <input type="text" name="Name" id="Name" />
+                    </label>
+                    <button type="submit" id="LoadRecordsButton">
+                        Load records
+                    </button>
+                </form>
+            </div>
+            <div id="CustomerContainer"></div>
+        </div>
+    </div>
+</div>
