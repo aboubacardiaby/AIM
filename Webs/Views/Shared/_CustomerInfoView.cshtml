@@ -1,0 +1,225 @@
+﻿@model Data.tblCustomerInfo
+<style>
+    .dl-horizontal dt {
+        float: left;
+        width: 160px;
+        overflow: hidden;
+        clear: left;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
+<div>
+    <h4>Customer information</h4>
+    <hr />
+    <table>
+        <tr>
+            <td width="400px">
+                <dl class="dl-horizontal float-left">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.STATUS)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.STATUS)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TERMS)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TERMS)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CURRENCY)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CURRENCY)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IS_CREDIT_HOLD)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IS_CREDIT_HOLD)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IS_CREDI_TWATCH)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IS_CREDI_TWATCH)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PRICELIST)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.PRICELIST)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CLASS_PLANNER)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CLASS_PLANNER)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PLANNER_BUYER_NAME)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.PLANNER_BUYER_NAME)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.REGION)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.REGION)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IS_PO_REQUIRED)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IS_PO_REQUIRED)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IS_TAXABLE)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IS_TAXABLE)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TAXZONE)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TAXZONE)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FED_TAX_ID)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FED_TAX_ID)
+                    </dd>
+                </dl>
+            </td>
+            <td width="400px">
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ST_TAX_ID)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ST_TAX_ID)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.JDE_CODE_25)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.JDE_CODE_25)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.JDE_CODE_25_DESC)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.JDE_CODE_25_DESC)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.INV_CONSOLIDATION)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.INV_CONSOLIDATION)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EDI_EMAIL)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.EDI_EMAIL)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.INV_PRINT_OPT)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.INV_PRINT_OPT)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IS_CURENT_CUST)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IS_CURENT_CUST)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ARR_ACCOUNT)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ARR_ACCOUNT)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.REMIT_TO)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.REMIT_TO)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.INVOICE_EMAIL)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.INVOICE_EMAIL)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SITE)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SITE)
+                    </dd>
+
+
+                </dl>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+</div>

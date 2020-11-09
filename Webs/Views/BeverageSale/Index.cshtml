@@ -1,97 +1,172 @@
-﻿
+﻿@{
+    ViewBag.Title = "Home Page";
+}
 
-   <div class="heads" style="background: url(/public/img/brewery-back1.jpg) 50% 27%;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2><span>//</span> Upload Sales</h2>
+
+<style>
+    .ui-widget-header {
+        background: #cedc98;
+        border: 1px solid #DDDDDD;
+        color: #333333;
+        font-weight: bold;
+    }
+
+    .progress-label {
+        position: absolute;
+        left: 50%;
+        top: 13px;
+        font-weight: bold;
+        text-shadow: 1px 1px 0 #fff;
+    }
+
+    .red {
+        color: green;
+    }
+</style>
+
+<div class="heads" style="background: url(/public/img/brewery-back1.jpg) 50% 27%;">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2><span>//</span>Beverage Sales Upload </h2>
+        </div>
+    </div>
+</div>
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="file" id="Files" />
+            </div>
+            <div class="col-sm-2">
+                <input type="button" id="UploadBtn" class="btn btn-danger" value="Upload data" />
+            </div>
+            <label id="txtWaring"> Wait Uploading...</label>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="progressbar-5">
+                    <div class="progress-label">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>   
-<script type="text/javascript">
+        <br />
+        <div class="site-container">
+            <div class="filtering">
+                <form runat="server">
+                    <label id="lblitem_code">
+                        Item_Code:
+                        <input type="text" name="Item_Code" id="Item_Code" />
+                    </label>
+
+
+                    <button type="submit" id="LoadRecordsButton">
+                        Search records
+                    </button>
+                </form>
+            </div>
+            <div id="BeverasaleContainer"></div>
+        </div>
+    </div>
+
+    <script>
 
     $(document).ready(function () {
-        $('#UploadBtn').hide();
-         $('#LoadRecordsButton').hide();
-        
-        $('#Files').change(function () {
-              $('#UploadBtn').show();
-        })
-         $('#UploadBtn').click(function () {
+        $('#txtWaring').hide();
+        $('#Item_Code').hide();
+         $('#lblitem_code').hide();
+          $('#LoadRecordsButton').hide();
 
-            var fileUpload = $("#Files").get(0);
-            var files = fileUpload.files;
-            // Create FormData object  
-            var fileData = new FormData();
-            // Looping over all files and add it to FormData object  
-            for (var i = 0; i < files.length; i++) {
-                fileData.append(files[i].name, files[i]);
-            }
-            $.ajax({
-                url: '@Url.Action("UploadFiles")',
-                type: "POST",
-                contentType: false, // Not to set any content header  
-                processData: false, // Not to process data  
-                data: fileData,
-                async: false,
-                success: function (result) {
-                    if (result != "") {
-                       
-                        LoadProgressBar(result);
-                    }
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
+        //hide button on page load
+        $('#UploadBtn').hide();
+        $('#grid1').hide();
+
+        //show it back again on upload change
+        $('#Files').bind('change', function () {
+            $('#UploadBtn').show();
+
 
         });
-      
     });
-    function LoadProgressBar(result) {
-            var progressbar = $("#progressbar-5");
-            var progressLabel = $(".progress-label");
-            progressbar.show();
-            $("#progressbar-5").progressbar({
-                //value: false,
-                change: function () {
-                    progressLabel.text(
-                     progressbar.progressbar("value") + "%");
-                },
-                complete: function () {
-                    progressLabel.text("Loading Completed!");
-                    progressbar.progressbar("value", 0);
-                    progressLabel.text("");
-                    progressbar.hide();
-                    grid();
-                    $("#Files").val("");
-                    
-                }
-            });
-            function progress() {
-                var val = progressbar.progressbar("value") || 0;
-                progressbar.progressbar("value", val + 1);
-                if (val < 99) {
-                    setTimeout(progress, 25);
-                }
+    $('#UploadBtn').click(function () {
+
+
+    var fileUpload = $("#Files").get(0);
+    var files = fileUpload.files;
+        $('#txtWaring').show();
+    // Create FormData object
+    var fileData = new FormData();
+    // Looping over all files and add it to FormData object
+    for (var i = 0; i < files.length; i++) {
+        fileData.append(files[i].name, files[i]);
+    }
+    $.ajax({
+        url: '@Url.Action("UploadFiles")',
+        type: "POST",
+        contentType: false, // Not to set any content header
+        processData: false, // Not to process data
+        data: fileData,
+        async: false,
+        success: function (result) {
+            if (result != "") {
+
+                LoadProgressBar(result);
+                LoadGrid();
+                $('#LoadRecordsButton').show();
+                $('#Item_Code').show();
+                $('#lblitem_code').show();
             }
-            setTimeout(progress, 100);
+        },
+        error: function (err) {
+            alert(err.statusText);
         }
-    function grid() {
-          $('#BeverasaleContainer').jtable({
+    });
+
+    });
+
+    function LoadProgressBar(result) {
+    var progressbar = $("#progressbar-5");
+    var progressLabel = $(".progress-label");
+    progressbar.show();
+    $("#progressbar-5").progressbar({
+        //value: false,
+        change: function () {
+            progressLabel.text(
+                progressbar.progressbar("value") + "%");
+        },
+        complete: function () {
+            progressLabel.text("Loading Completed!");
+            progressbar.progressbar("value", 0);
+            progressLabel.text("");
+            progressbar.hide();
+            $('#Files').val("")
+                $('#txtWaring').hide();
+
+        }
+    });
+    function progress() {
+        var val = progressbar.progressbar("value") || 0;
+        progressbar.progressbar("value", val + 1);
+        if (val < 99) {
+            setTimeout(progress, 25);
+        }
+    }
+    setTimeout(progress, 100);
+    }
+
+    function LoadGrid() {
+        $('#BeverasaleContainer').jtable({
             title: 'Beverage Sale List',
             paging: true,
             pageSize: 25,
-            toolbar: {   
-},
+
             sorting: true,
-            defaultSorting: 'Name ASC',
+            defaultSorting: 'Item_Code ASC',
             actions: {
                 listAction: '@Url.Action("LoadBeveraleData")',
-                deleteAction: '@Url.Action("DeleteBeverage")',
-                @*updateAction: '@Url.Action("UpdateCustomerCode")',
-                createAction: '@Url.Action("CreateCustomerCode")'*@
+                deleteAction: '@Url.Action("DeleteBeverage")'
             },
             fields: {
                 BeverageSaleId: {
@@ -100,14 +175,14 @@
                     edit: false,
                     list: false
                 },
-                 Bol_Number: {
+                Bol_Number: {
                     title: 'Bol#',
-                     width: '23%'
+                    width: '23%'
                 },
-                 MaterialId: {
+                MaterialId: {
                     title: 'Material',
-                     width: '40%',
-                     options: '@Url.Action("GetMaterialOptions")'
+                    width: '40%',
+                    options: '@Url.Action("GetMaterialOptions")'
                 },
                 Item_Code: {
                     title: 'Item_Code',
@@ -136,8 +211,8 @@
                 },
                 Ship_Date: {
                     title: 'Ship_Date',
-                    width: '23%',  type: 'date',
-                        displayFormat: 'yy-mm-dd'
+                    width: '23%', type: 'date',
+                    displayFormat: 'yy-mm-dd'
                 },
                 //Ship_Time: {
                 //    title: 'Ship_Time',
@@ -158,10 +233,10 @@
                     title: 'Carrier',
                     width: '12%'
                 },
-                Trailer_Number: {
-                    title: 'Trailer_Number',
-                    width: '12%'
-                },
+                //Trailer_Number: {
+                //    title: 'Trailer_Number',
+                //    width: '12%'
+                //},
                 // Seal_Number: {
                 //    title: 'Seal#',
                 //    width: '12%'
@@ -170,19 +245,19 @@
                 //    title: 'Customer_PO',
                 //    width: '12%'
                 //},
-                 Quantity: {
+                Quantity: {
                     title: 'Quantity',
                     width: '12%'
                 },
-                  Size: {
+                Size: {
                     title: 'Size',
                     width: '12%'
                 },
-                   Neck_Size: {
+                Neck_Size: {
                     title: 'Neck_Size ',
                     width: '12%'
                 },
-                    CAN_END: {
+                CAN_END: {
                     title: 'CAN_END ',
                     width: '12%'
                 },
@@ -192,48 +267,13 @@
         $('#BeverasaleContainer').jtable('load', {});
         //Load student list from server
         $('#LoadRecordsButton').click(function (e) {
-                e.preventDefault();
-                $('#BeverasaleContainer').jtable('load', {
-                    MaterialId: $('#Material').val(),
+            e.preventDefault();
+            $('#BeverasaleContainer').jtable('load', {
+                Item_Code: $('#Item_Code').val(),
 
-                });
             });
-          $('#LoadRecordsButton').click();
+        });
     }
-</script>
 
+    </script>
 
-<div class="page-content">
-    <div class="container">
-        <div id="FileBrowse">
-            <div class="row">
-                <div class="col-sm-4">
-                    <input type="file" id="Files" />
-                </div>
-                <div class="col-sm-2">
-                    <input type="button" id="UploadBtn" class="btn btn-danger" value="Upload" />
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div id="progressbar-5">
-                    <div class="progress-label">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-container">
-            <div class="filtering">
-                <form runat="server">
-                    <label>
-
-                        <button type="submit" id="LoadRecordsButton">
-                            Load records
-                        </button>
-                </form>
-            </div>
-            <div id="BeverasaleContainer"></div>
-        </div>
-    </div>
-</div>

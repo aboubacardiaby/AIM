@@ -5,3 +5,167 @@
 
 <h2>Upload</h2>
 
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#BeverasaleContainer').jtable({
+            title: 'Beverage Sale List',
+            paging: true,
+            pageSize: 25,
+    //        toolbar: {
+    //items: [{
+    //    Tooltip: 'Click here to export this table to excel',
+    //    //icon: '/images/paginate.gif',
+    //    text: 'Export to Excel',
+    //    click: function () {
+    //        window.location = 'getResult.php?formName=afscpEmp&action=export-excel';
+    //        e.preventDefault();
+    //    }
+   // }]
+//},
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '@Url.Action("LoadBeveraleData")',
+                deleteAction: '@Url.Action("DeleteBeverage")',
+                @*updateAction: '@Url.Action("UpdateCustomerCode")',
+                createAction: '@Url.Action("CreateCustomerCode")'*@
+            },
+            fields: {
+                BeverageSaleId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                 Bol_Number: {
+                    title: 'Bol#',
+                     width: '23%'
+                },
+                 MaterialId: {
+                    title: 'Material',
+                     width: '40%',
+                     options: '@Url.Action("GetMaterialOptions")'
+                },
+                Item_Code: {
+                    title: 'Item_Code',
+                    width: '33%',
+
+                },
+                Ship_To: {
+                    title: 'Ship_To',
+                    width: '23%'
+                },
+                Ship_To_Aplha_Name: {
+                    title: 'Ship_To_Aplha_Name',
+                    width: '23%'
+                },
+                Sold_To: {
+                    title: 'Sold_To',
+                    width: '23%'
+                },
+                Sold_To_Alpha_Name: {
+                    title: 'Sold_To_Alpha_Name',
+                    width: '23%'
+                },
+                Ship_From: {
+                    title: 'Ship_From',
+                    width: '23%'
+                },
+                Ship_Date: {
+                    title: 'Ship_Date',
+                    width: '23%',  type: 'date',
+                        displayFormat: 'yy-mm-dd'
+                },
+                //Ship_Time: {
+                //    title: 'Ship_Time',
+                //    width: '23%'
+                //},
+                //Promised_Date: {
+                //    title: 'Promised_Date',
+                //    width: '23%',
+                //     type: 'date',
+                //        displayFormat: 'yy-mm-dd'
+                //},
+                //Promised_Time: {
+                //    title: 'Promised_Time',
+                //    width: '23%'
+                //},
+
+                Carrier: {
+                    title: 'Carrier',
+                    width: '12%'
+                },
+                //Trailer_Number: {
+                //    title: 'Trailer_Number',
+                //    width: '12%'
+                //},
+                // Seal_Number: {
+                //    title: 'Seal#',
+                //    width: '12%'
+                //},
+                //Customer_PO: {
+                //    title: 'Customer_PO',
+                //    width: '12%'
+                //},
+                 Quantity: {
+                    title: 'Quantity',
+                    width: '12%'
+                },
+                  Size: {
+                    title: 'Size',
+                    width: '12%'
+                },
+                   Neck_Size: {
+                    title: 'Neck_Size ',
+                    width: '12%'
+                },
+                    CAN_END: {
+                    title: 'CAN_END ',
+                    width: '12%'
+                },
+
+            }
+        });
+
+        //Load student list from server
+          $('#BeverasaleContainer').jtable('load', {});
+        //Load student list from server
+        $('#LoadRecordsButton').click(function (e) {
+            e.preventDefault();
+            $('#BeverasaleContainer').jtable('load', {
+                Item_Code: $('#Item_Code').val(),
+
+            });
+        });
+
+    });
+</script>
+
+
+<div class="page-content">
+    <div class="container">
+        <div class="site-container">
+            <div class="filtering">
+                <div class="site-container">
+                    <div class="filtering">
+                        <form runat="server">
+                            <label id="lblitem_code">
+                                Item_Code:
+                                <input type="text" name="Item_Code" id="Item_Code" />
+                            </label>
+
+
+                            <button type="submit" id="LoadRecordsButton">
+                                Search records
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div id="BeverasaleContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,9 @@
             pageSize: 25,
             sorting: true,
             defaultSorting: 'Name ASC',
+            selecting: true, //Enable selecting
+            multiselect: false, //Allow multiple selecting
+            selectingCheckboxes: true,
             actions: {
                 listAction: '@Url.Action("CustommerReferenceList")',
                 deleteAction: '@Url.Action("DeleteCustomerCode")',
@@ -27,15 +30,77 @@
                     list: false
                 },
                  CustomerCode: {
-                    title: 'Customer Code',
-                     width: '12%'
+                    title: 'CustomerCode',
+                     width: '10%'
                 },
                 Name: {
                     title: 'Name',
                     width: '23%'
                 },
+                //   Short_Name: {
+                //    title: 'Sort_Name',
+                //    width: '23%'
+                //},
+                  @*Address1 : {
+                    title: 'Address1',
+                    width: '25%'
+                },
+                    Address2 : {
+                    title: 'Address2',
+                    width: '13%'
+                },
+                    City: {
+                    title: 'City',
+                    width: '10%'
+                },
+                    Province: {
+                    title: 'State',
+                    width: '5%'
+                },
+                    PostalCode: {
+                    title: 'ZipCode',
+                    width: '8%'
+                },
+                    AddressType: {
+                    title: ' AddressType',
+                       width: '23%',
+                     options: { 'Billing': 'Billing', 'Shipping': 'Shipping' }
+                },
+                    CountryId : {
+                    title: 'Country',
+                        width: '25%',
+                        options: '@Url.Action("GetCountryOptions")'
+                },*@
 
+            },  //Register to selectionChanged event to hanlde events
+            selectionChanged: function () {
+                //Get all selected rows
+                var $selectedRows = $('#CustomerContainer').jtable('selectedRows');
 
+                $('#SelectedRowList').empty();
+                if ($selectedRows.length > 0) {
+                    //Show selected rows
+                    $selectedRows.each(function () {
+                          var record = $(this).data('record');
+                       var link = document.createElement('a');
+                          link.href = "@Url.Action("Customerview","Customer")?customercode="+ record.CustomerCode;
+                          link.target= "blank";
+                          document.body.appendChild(link);
+                          link.click();
+
+                        //<a id='a' href='http://www.google.com'> aaa </a>
+                        // alert()
+
+                    });
+                } else {
+                    //No rows selected
+                    $('#SelectedRowList').append('No row selected! Select rows to see here...');
+                }
+            },
+            rowInserted: function (event, data) {
+                if (data.record.Name.indexOf('Andrew') >= 0) {
+                    $('#CustomerContainer').jtable('selectRows', data.row);
+                }
             }
         });
 

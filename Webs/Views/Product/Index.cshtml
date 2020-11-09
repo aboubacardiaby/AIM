@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#productcontainer').jtable({
+            title: 'Product  List',
+            paging: true,
+            pageSize: 25,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '@Url.Action("LoadProductdata")',
+                deleteAction: '@Url.Action("DeleteProduct")',
+                updateAction: '@Url.Action("UpdateCusProduct")',
+                createAction: '@Url.Action("CreateProduct")'
+            },
+            fields: {
+                ProductId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                 Item_Number: {
+                    title: 'Item_Number',
+                     width: '12%'
+                },
+                Item_Group: {
+                    title: 'Item_Group',
+                    width: '23%'
+                },
+                  Description: {
+                    title: 'Description',
+                    width: '23%'
+                },
+                    Customer_Group: {
+                    title: 'Customer_Group',
+                    width: '23%'
+                },
+                    Material_Type: {
+                    title: 'Material_Type',
+                    width: '23%'
+                },
+                   Colors: {
+                    title: 'Colors',
+                    width: '23%'
+                },
+                   Weight: {
+                    title: 'Weight',
+                    width: '23%'
+                },
+                   Dimension: {
+                    title: 'Dimension',
+                    width: '23%'
+                },
+                    Grouping: {
+                    title: 'Grouping',
+                    width: '23%'
+                },
+            }
+        });
+
+        //Load student list from server
+        $('#LoadRecordsButton').click(function (e) {
+                e.preventDefault();
+                $('#productcontainer').jtable('load', {
+                    name: $('#Name').val(),
+                     ProductId: $('#ProductId').val()
+
+                });
+            });
+          $('#LoadRecordsButton').click();
+    });
+
+</script>
+<div class="heads" style="background: url(/public/img/brewery-back1.jpg) 50% 27%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><span>//</span>Product Table</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="container">
+        <div class="site-container">
+            <div class="filtering">
+                <form runat="server">
+                    <label>
+                        Description:
+                        <input type="text" name="Name" id="Name" />
+                    </label>
+                    <button type="submit" id="LoadRecordsButton">
+                        Search
+                    </button>
+                </form>
+            </div>
+            <div id="productcontainer"></div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Webs.Utilities;
@@ -25,10 +26,17 @@ namespace Webs.Controllers
         {
             return View();
         }
-      
-   
-        [HttpPost]   
-        public ActionResult UploadFiles()
+        public ActionResult Upload()
+        {
+            return View();
+        }
+        public ActionResult LargeFileUploader()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UploadFiles()
         {
             string FileName = "";
             HttpFileCollectionBase files = Request.Files;
@@ -42,6 +50,8 @@ namespace Webs.Controllers
 
                     if (file.FileName.EndsWith(".csv"))
                     {
+                      //  await Task.WhenAll();
+
                         Stream stream = file.InputStream;
                       var list=  FileLoader.GetSaleItems(stream);
                         foreach (var item in list)
@@ -56,8 +66,7 @@ namespace Webs.Controllers
 
                             _repository.AddBeverageSale(item);
                         }
-                        
-
+                       
                         return View("Index");
                     }
                     else

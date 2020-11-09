@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "_AddressView";
+}
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#CustomerContainer').jtable({
+            title: 'Customer Address List',
+            paging: true,
+            pageSize: 25,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            //selecting: true, //Enable selecting
+            //multiselect: true, //Allow multiple selecting
+            //selectingCheckboxes: true,
+            actions: {
+                listAction: '@Url.Action("LoadAddresss")',
+                deleteAction: '@Url.Action("DeleteCustomerCode")',
+                updateAction: '@Url.Action("UpdateCustomerCode")',
+                createAction: '@Url.Action("CreateCustomerCode")'
+            },
+            fields: {
+                ReferenceId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                 CustomerCode: {
+                    title: 'Customer Code',
+                     width: '10%'
+                },
+
+
+                  Address1 : {
+                    title: 'Address1',
+                    width: '25%'
+                },
+                    Address2 : {
+                    title: 'Address2',
+                    width: '13%'
+                },
+                    City: {
+                    title: 'City',
+                    width: '10%'
+                },
+                    Province: {
+                    title: 'State',
+                    width: '5%'
+                },
+                    PostalCode: {
+                    title: 'Zip Code',
+                    width: '8%'
+                },
+                    AddressType: {
+                    title: ' Address Type',
+                       width: '23%',
+                     options: { 'Billing': 'Billing', 'Shipping': 'Shipping' }
+                },
+                    CountryId : {
+                    title: 'Country',
+                        width: '25%',
+                        options: '@Url.Action("GetCountryOptions")'
+                },
+            }
+        });
+
+
+                $('#CustomerContainer').jtable('load', {
+
+                });
+            });
+
+</script>
+
+<div class="page-content">
+    <div class="container">
+        <div class="site-container">
+
+            <div id="CustomerContainer"></div>
+        </div>
+    </div>
+</div>

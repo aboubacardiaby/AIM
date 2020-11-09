@@ -1,0 +1,65 @@
+﻿
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#contactContainer').jtable({
+            title: 'Contact List',
+            paging: true,
+            pageSize: 25,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            //selecting: true, //Enable selecting
+            //multiselect: true, //Allow multiple selecting
+            //selectingCheckboxes: true,
+            actions: {
+                listAction: '@Url.Action("LoadContacts")',
+                deleteAction: '@Url.Action("DeleteLoadContacts")',
+                updateAction: '@Url.Action("UpdateLoadContacts")',
+                createAction: '@Url.Action("CreateLoadContacts")'
+            },
+            fields: {
+                ContactId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                 Name: {
+                    title: 'Name',
+                     width: '10%'
+                },
+                  Email: {
+                    title: 'Email',
+                    width: '25%'
+                },
+                    Phone : {
+                    title: 'Phone',
+                    width: '13%'
+                },
+                    Fax: {
+                    title: 'Fax',
+                    width: '10%'
+                },
+
+            }
+        });
+
+
+                $('#contactContainer').jtable('load', {
+
+                });
+            });
+
+</script>
+
+<div class="page-content">
+    <div class="container">
+        <div class="site-container">
+
+            <div id="contactContainer"></div>
+        </div>
+    </div>
+</div>
