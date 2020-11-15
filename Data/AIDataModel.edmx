@@ -1,0 +1,1286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="AddressType" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Province" Type="char" MaxLength="70" Nullable="false" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="CountryId" Type="bigint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblBeverageSale">
+          <Key>
+            <PropertyRef Name="BeverageSaleId" />
+          </Key>
+          <Property Name="BeverageSaleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bol_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_Code" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="MaterialId" Type="bigint" Nullable="false" />
+          <Property Name="Ship_To" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Ship_To_Aplha_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sold_To" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sold_To_Alpha_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ship_From" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Ship_Date" Type="datetime" Nullable="false" />
+          <Property Name="Ship_Time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Promised_Date" Type="datetime" Nullable="false" />
+          <Property Name="Promised_Time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Carrier" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Trailer_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Seal_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_PO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_Release" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_Reference" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eaches" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_Item" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Size" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Neck_Size" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CAN_END" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="70" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Fax" Type="varchar" MaxLength="70" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="TblCountry">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TwoLetterIsoCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThreeLetterIsoCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumericIsoCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblCustomerInfo">
+          <Key>
+            <PropertyRef Name="CustomerInfoId" />
+          </Key>
+          <Property Name="CustomerInfoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="STATUS" Type="varchar" MaxLength="70" />
+          <Property Name="TERMS" Type="varchar" MaxLength="70" />
+          <Property Name="CURRENCY" Type="varchar" MaxLength="70" />
+          <Property Name="IS_CREDIT_HOLD" Type="bit" />
+          <Property Name="IS_CREDI_TWATCH" Type="bit" />
+          <Property Name="PRICELIST" Type="varchar" MaxLength="70" />
+          <Property Name="CLASS_PLANNER" Type="varchar" MaxLength="70" />
+          <Property Name="PLANNER_BUYER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="REGION" Type="varchar" MaxLength="70" />
+          <Property Name="IS_PO_REQUIRED" Type="bit" />
+          <Property Name="IS_TAXABLE" Type="bit" />
+          <Property Name="TAXZONE" Type="varchar" MaxLength="70" />
+          <Property Name="FED_TAX_ID" Type="varchar" MaxLength="70" />
+          <Property Name="ST_TAX_ID" Type="varchar" MaxLength="70" />
+          <Property Name="JDE_CODE_25" Type="varchar" MaxLength="70" />
+          <Property Name="JDE_CODE_25_DESC" Type="varchar" MaxLength="70" />
+          <Property Name="INV_CONSOLIDATION" Type="varchar" MaxLength="70" />
+          <Property Name="EDI_EMAIL" Type="varchar" MaxLength="70" />
+          <Property Name="INV_PRINT_OPT" Type="varchar" MaxLength="70" />
+          <Property Name="IS_CURENT_CUST" Type="varchar" MaxLength="70" />
+          <Property Name="ARR_ACCOUNT" Type="varchar" MaxLength="70" />
+          <Property Name="REMIT_TO" Type="varchar" MaxLength="70" />
+          <Property Name="INVOICE_EMAIL" Type="varchar" MaxLength="70" />
+          <Property Name="SITE" Type="varchar" MaxLength="70" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblCustomerReference">
+          <Key>
+            <PropertyRef Name="CustomerCode" />
+          </Key>
+          <Property Name="ReferenceId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Short_Name" Type="varchar" MaxLength="100" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblFoodSale">
+          <Key>
+            <PropertyRef Name="FoodSaleId" />
+          </Key>
+          <Property Name="FoodSaleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bill_of_Landing" Type="varchar" MaxLength="70" />
+          <Property Name="Ship_Site" Type="bigint" />
+          <Property Name="Type" Type="varchar" MaxLength="70" />
+          <Property Name="Ship_Date" Type="datetime" />
+          <Property Name="Time" Type="varchar" MaxLength="70" />
+          <Property Name="Location" Type="varchar" MaxLength="70" />
+          <Property Name="Point_of_Origin" Type="varchar" MaxLength="70" />
+          <Property Name="Item_Number" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Desc" Type="varchar" MaxLength="70" />
+          <Property Name="Qty" Type="bigint" />
+          <Property Name="Item_Type" Type="varchar" MaxLength="70" />
+          <Property Name="Ship_To" Type="varchar" MaxLength="70" />
+          <Property Name="Sort_Name" Type="varchar" MaxLength="70" />
+          <Property Name="Carrier" Type="varchar" MaxLength="70" />
+          <Property Name="Truc_Car" Type="varchar" MaxLength="70" />
+          <Property Name="Seals" Type="varchar" MaxLength="70" />
+          <Property Name="Biller" Type="varchar" MaxLength="70" />
+          <Property Name="Loader" Type="varchar" MaxLength="70" />
+          <Property Name="Remarks" Type="varchar(max)" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblMaterial_Handling">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Material_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblPlant">
+          <Key>
+            <PropertyRef Name="Ship_From" />
+          </Key>
+          <Property Name="PlantId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ship_From" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="70" />
+          <Property Name="State" Type="varchar" MaxLength="70" />
+          <Property Name="Postal_Code" Type="varchar" MaxLength="70" />
+          <Property Name="Pallet_Capacity" Type="varchar" MaxLength="70" />
+          <Property Name="Square_Footage" Type="varchar" MaxLength="70" />
+          <Property Name="Clear_Height" Type="varchar" MaxLength="70" />
+          <Property Name="Hours" Type="varchar" MaxLength="70" />
+          <Property Name="Type" Type="varchar" MaxLength="70" />
+          <Property Name="Contract_Type" Type="varchar" MaxLength="70" />
+          <Property Name="Use" Type="varchar" MaxLength="70" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="Item_Number" />
+          </Key>
+          <Property Name="ProductId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item_Number" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Item_Group" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Customer_Group" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="Material_Type" Type="varchar" MaxLength="75" />
+          <Property Name="Colors" Type="varchar" MaxLength="75" />
+          <Property Name="Weight" Type="varchar" MaxLength="75" />
+          <Property Name="Dimension" Type="varchar" MaxLength="75" />
+          <Property Name="Grouping" Type="varchar" MaxLength="75" />
+          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblProduct_Reference">
+          <Key>
+            <PropertyRef Name="Item_Code" />
+          </Key>
+          <Property Name="ProductReferenceId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item_Code" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Item_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblReturn">
+          <Key>
+            <PropertyRef Name="ReturnId" />
+          </Key>
+          <Property Name="ReturnId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Transfer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shipper_PO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pro_Num" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="To_NT_Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="To_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="From_NT_Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="From_Ball_ID" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="From_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_NT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_Ball" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Quantity" Type="bigint" Nullable="false" />
+          <Property Name="Scrap" Type="bigint" Nullable="false" />
+          <Property Name="Special_Cleaning" Type="bigint" Nullable="false" />
+          <Property Name="Repair" Type="bigint" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblWarehouse">
+          <Key>
+            <PropertyRef Name="Ship_To" />
+          </Key>
+          <Property Name="WarehouseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ship_To" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="70" />
+          <Property Name="State" Type="varchar" MaxLength="70" />
+          <Property Name="Postal_Code" Type="varchar" MaxLength="70" />
+          <Property Name="Pallet_Capacity" Type="varchar" MaxLength="70" />
+          <Property Name="Square_Footage" Type="varchar" MaxLength="70" />
+          <Property Name="Clear_Height" Type="varchar" MaxLength="70" />
+          <Property Name="Hours" Type="varchar" MaxLength="70" />
+          <Property Name="Type" Type="varchar" MaxLength="70" />
+          <Property Name="Contract_Type" Type="varchar" MaxLength="70" />
+          <Property Name="Use" Type="varchar" MaxLength="70" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <Association Name="FK_Contact_Customer">
+          <End Role="tblCustomerReference" Type="Self.tblCustomerReference" Multiplicity="0..1" />
+          <End Role="tblContact" Type="Self.tblContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblContact">
+              <PropertyRef Name="CustomerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_Address">
+          <End Role="TblCountry" Type="Self.TblCountry" Multiplicity="1" />
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCountry">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="tblAddress">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerInfo_Customer">
+          <End Role="tblCustomerReference" Type="Self.tblCustomerReference" Multiplicity="1" />
+          <End Role="tblCustomerInfo" Type="Self.tblCustomerInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblCustomerInfo">
+              <PropertyRef Name="CustomerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBeverageSale_tblMaterial">
+          <End Role="tblMaterial_Handling" Type="Self.tblMaterial_Handling" Multiplicity="1" />
+          <End Role="tblBeverageSale" Type="Self.tblBeverageSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMaterial_Handling">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="tblBeverageSale">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBeverageSale_tblproductReference">
+          <End Role="tblProduct_Reference" Type="Self.tblProduct_Reference" Multiplicity="1" />
+          <End Role="tblBeverageSale" Type="Self.tblBeverageSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct_Reference">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="tblBeverageSale">
+              <PropertyRef Name="Item_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBeverageSale_tblReference">
+          <End Role="tblCustomerReference" Type="Self.tblCustomerReference" Multiplicity="1" />
+          <End Role="tblBeverageSale" Type="Self.tblBeverageSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblBeverageSale">
+              <PropertyRef Name="Ship_To" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerReference_Address">
+          <End Role="tblCustomerReference" Type="Self.tblCustomerReference" Multiplicity="1" />
+          <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblAddress">
+              <PropertyRef Name="CustomerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFoodSaleSale_tblReference">
+          <End Role="tblCustomerReference" Type="Self.tblCustomerReference" Multiplicity="0..1" />
+          <End Role="tblFoodSale" Type="Self.tblFoodSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblFoodSale">
+              <PropertyRef Name="Point_of_Origin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProduct__tblFoodSale">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+          <End Role="tblFoodSale" Type="Self.tblFoodSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="Item_Number" />
+            </Principal>
+            <Dependent Role="tblFoodSale">
+              <PropertyRef Name="Item_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblReturn_tblProduct">
+          <End Role="tblProduct_Reference" Type="Self.tblProduct_Reference" Multiplicity="1" />
+          <End Role="tblReturn" Type="Self.tblReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct_Reference">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="tblReturn">
+              <PropertyRef Name="Item_Ball" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblReturn_tblReference">
+          <End Role="tblCustomerReference" Type="Self.tblCustomerReference" Multiplicity="1" />
+          <End Role="tblReturn" Type="Self.tblReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblReturn">
+              <PropertyRef Name="From_Ball_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CoreDBModelStoreContainer">
+          <EntitySet Name="tblAddress" EntityType="Self.tblAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBeverageSale" EntityType="Self.tblBeverageSale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContact" EntityType="Self.tblContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCountry" EntityType="Self.TblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerInfo" EntityType="Self.tblCustomerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerReference" EntityType="Self.tblCustomerReference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFoodSale" EntityType="Self.tblFoodSale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMaterial_Handling" EntityType="Self.tblMaterial_Handling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPlant" EntityType="Self.tblPlant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct_Reference" EntityType="Self.tblProduct_Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblReturn" EntityType="Self.tblReturn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWarehouse" EntityType="Self.tblWarehouse" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contact_Customer" Association="Self.FK_Contact_Customer">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReference" />
+            <End Role="tblContact" EntitySet="tblContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_Address" Association="Self.FK_Country_Address">
+            <End Role="TblCountry" EntitySet="TblCountry" />
+            <End Role="tblAddress" EntitySet="tblAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerInfo_Customer" Association="Self.FK_CustomerInfo_Customer">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReference" />
+            <End Role="tblCustomerInfo" EntitySet="tblCustomerInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBeverageSale_tblMaterial" Association="Self.FK_tblBeverageSale_tblMaterial">
+            <End Role="tblMaterial_Handling" EntitySet="tblMaterial_Handling" />
+            <End Role="tblBeverageSale" EntitySet="tblBeverageSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBeverageSale_tblproductReference" Association="Self.FK_tblBeverageSale_tblproductReference">
+            <End Role="tblProduct_Reference" EntitySet="tblProduct_Reference" />
+            <End Role="tblBeverageSale" EntitySet="tblBeverageSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBeverageSale_tblReference" Association="Self.FK_tblBeverageSale_tblReference">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReference" />
+            <End Role="tblBeverageSale" EntitySet="tblBeverageSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerReference_Address" Association="Self.FK_tblCustomerReference_Address">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReference" />
+            <End Role="tblAddress" EntitySet="tblAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFoodSaleSale_tblReference" Association="Self.FK_tblFoodSaleSale_tblReference">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReference" />
+            <End Role="tblFoodSale" EntitySet="tblFoodSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProduct__tblFoodSale" Association="Self.FK_tblProduct__tblFoodSale">
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblFoodSale" EntitySet="tblFoodSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblReturn_tblProduct" Association="Self.FK_tblReturn_tblProduct">
+            <End Role="tblProduct_Reference" EntitySet="tblProduct_Reference" />
+            <End Role="tblReturn" EntitySet="tblReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblReturn_tblReference" Association="Self.FK_tblReturn_tblReference">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReference" />
+            <End Role="tblReturn" EntitySet="tblReturn" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblFoodSale">
+          <Key>
+            <PropertyRef Name="FoodSaleId" />
+          </Key>
+          <Property Name="FoodSaleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bill_of_Landing" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_Site" Type="Int64" />
+          <Property Name="Type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_Date" Type="DateTime" Precision="3" />
+          <Property Name="Time" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Point_of_Origin" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Item_Number" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Qty" Type="Int64" />
+          <Property Name="Item_Type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Sort_Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Carrier" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Truc_Car" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Seals" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Biller" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Loader" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblProduct__tblFoodSale" FromRole="tblFoodSale" ToRole="tblProduct" />
+          <NavigationProperty Name="tblCustomerReference" Relationship="CoreDBModel.FK_tblFoodSaleSale_tblReference" FromRole="tblFoodSale" ToRole="tblCustomerReference" />
+        </EntityType>
+        <EntityType Name="tblMaterial_Handling">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Material_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblBeverageSales" Relationship="CoreDBModel.FK_tblBeverageSale_tblMaterial" FromRole="tblMaterial_Handling" ToRole="tblBeverageSale" />
+        </EntityType>
+        <EntityType Name="tblPlant">
+          <Key>
+            <PropertyRef Name="Ship_From" />
+          </Key>
+          <Property Name="PlantId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ship_From" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Pallet_Capacity" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Square_Footage" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Clear_Height" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Hours" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Contract_Type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Use" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="Item_Number" />
+          </Key>
+          <Property Name="ProductId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item_Number" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_Group" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_Group" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Material_Type" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Colors" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Dimension" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Grouping" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblFoodSales" Relationship="Self.FK_tblProduct__tblFoodSale" FromRole="tblProduct" ToRole="tblFoodSale" />
+        </EntityType>
+        <EntityType Name="tblProduct_Reference">
+          <Key>
+            <PropertyRef Name="Item_Code" />
+          </Key>
+          <Property Name="ProductReferenceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item_Code" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblReturns" Relationship="Self.FK_tblReturn_tblProduct" FromRole="tblProduct_Reference" ToRole="tblReturn" />
+          <NavigationProperty Name="tblBeverageSales" Relationship="CoreDBModel.FK_tblBeverageSale_tblproductReference" FromRole="tblProduct_Reference" ToRole="tblBeverageSale" />
+        </EntityType>
+        <EntityType Name="tblReturn">
+          <Key>
+            <PropertyRef Name="ReturnId" />
+          </Key>
+          <Property Name="ReturnId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Transfer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shipper_PO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pro_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="To_NT_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="To_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="From_NT_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="From_Ball_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="From_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_NT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_Ball" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int64" Nullable="false" />
+          <Property Name="Scrap" Type="Int64" Nullable="false" />
+          <Property Name="Special_Cleaning" Type="Int64" Nullable="false" />
+          <Property Name="Repair" Type="Int64" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblProduct_Reference" Relationship="Self.FK_tblReturn_tblProduct" FromRole="tblReturn" ToRole="tblProduct_Reference" />
+          <NavigationProperty Name="tblCustomerReference" Relationship="CoreDBModel.FK_tblReturn_tblReference" FromRole="tblReturn" ToRole="tblCustomerReference" />
+        </EntityType>
+        <EntityType Name="tblWarehouse">
+          <Key>
+            <PropertyRef Name="Ship_To" />
+          </Key>
+          <Property Name="WarehouseId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ship_To" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Pallet_Capacity" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Square_Footage" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Clear_Height" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Hours" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Contract_Type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Use" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_tblProduct__tblFoodSale">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+          <End Role="tblFoodSale" Type="Self.tblFoodSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="Item_Number" />
+            </Principal>
+            <Dependent Role="tblFoodSale">
+              <PropertyRef Name="Item_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblReturn_tblProduct">
+          <End Role="tblProduct_Reference" Type="Self.tblProduct_Reference" Multiplicity="1" />
+          <End Role="tblReturn" Type="Self.tblReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct_Reference">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="tblReturn">
+              <PropertyRef Name="Item_Ball" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CoreDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblFoodSales" EntityType="Self.tblFoodSale" />
+          <EntitySet Name="tblMaterial_Handling" EntityType="Self.tblMaterial_Handling" />
+          <EntitySet Name="tblPlants" EntityType="Self.tblPlant" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+          <EntitySet Name="tblProduct_Reference" EntityType="Self.tblProduct_Reference" />
+          <EntitySet Name="tblReturns" EntityType="Self.tblReturn" />
+          <EntitySet Name="tblWarehouses" EntityType="Self.tblWarehouse" />
+          <AssociationSet Name="FK_tblProduct__tblFoodSale" Association="Self.FK_tblProduct__tblFoodSale">
+            <End Role="tblProduct" EntitySet="tblProducts" />
+            <End Role="tblFoodSale" EntitySet="tblFoodSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblReturn_tblProduct" Association="Self.FK_tblReturn_tblProduct">
+            <End Role="tblProduct_Reference" EntitySet="tblProduct_Reference" />
+            <End Role="tblReturn" EntitySet="tblReturns" />
+          </AssociationSet>
+          <EntitySet Name="tblContacts" EntityType="CoreDBModel.tblContact" />
+          <EntitySet Name="TblCountries" EntityType="CoreDBModel.TblCountry" />
+          <EntitySet Name="tblCustomerInfoes" EntityType="CoreDBModel.tblCustomerInfo" />
+          <EntitySet Name="tblAddresses" EntityType="CoreDBModel.tblAddress" />
+          <EntitySet Name="tblCustomerReferences" EntityType="CoreDBModel.tblCustomerReference" />
+          <AssociationSet Name="FK_Country_Address" Association="CoreDBModel.FK_Country_Address">
+            <End Role="TblCountry" EntitySet="TblCountries" />
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerReference_Address" Association="CoreDBModel.FK_tblCustomerReference_Address">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReferences" />
+            <End Role="tblAddress" EntitySet="tblAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Customer" Association="CoreDBModel.FK_Contact_Customer">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReferences" />
+            <End Role="tblContact" EntitySet="tblContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerInfo_Customer" Association="CoreDBModel.FK_CustomerInfo_Customer">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReferences" />
+            <End Role="tblCustomerInfo" EntitySet="tblCustomerInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFoodSaleSale_tblReference" Association="CoreDBModel.FK_tblFoodSaleSale_tblReference">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReferences" />
+            <End Role="tblFoodSale" EntitySet="tblFoodSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblReturn_tblReference" Association="CoreDBModel.FK_tblReturn_tblReference">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReferences" />
+            <End Role="tblReturn" EntitySet="tblReturns" />
+          </AssociationSet>
+          <EntitySet Name="tblBeverageSales" EntityType="CoreDBModel.tblBeverageSale" />
+          <AssociationSet Name="FK_tblBeverageSale_tblMaterial" Association="CoreDBModel.FK_tblBeverageSale_tblMaterial">
+            <End Role="tblMaterial_Handling" EntitySet="tblMaterial_Handling" />
+            <End Role="tblBeverageSale" EntitySet="tblBeverageSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBeverageSale_tblproductReference" Association="CoreDBModel.FK_tblBeverageSale_tblproductReference">
+            <End Role="tblProduct_Reference" EntitySet="tblProduct_Reference" />
+            <End Role="tblBeverageSale" EntitySet="tblBeverageSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBeverageSale_tblReference" Association="CoreDBModel.FK_tblBeverageSale_tblReference">
+            <End Role="tblCustomerReference" EntitySet="tblCustomerReferences" />
+            <End Role="tblBeverageSale" EntitySet="tblBeverageSales" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerCode" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblCustomerReference" Relationship="CoreDBModel.FK_Contact_Customer" FromRole="tblContact" ToRole="tblCustomerReference" />
+        </EntityType>
+        <EntityType Name="TblCountry">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TwoLetterIsoCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThreeLetterIsoCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumericIsoCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblAddresses" Relationship="CoreDBModel.FK_Country_Address" FromRole="TblCountry" ToRole="tblAddress" />
+        </EntityType>
+        <EntityType Name="tblCustomerInfo">
+          <Key>
+            <PropertyRef Name="CustomerInfoId" />
+          </Key>
+          <Property Name="CustomerInfoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="TERMS" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CURRENCY" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="IS_CREDIT_HOLD" Type="Boolean" />
+          <Property Name="IS_CREDI_TWATCH" Type="Boolean" />
+          <Property Name="PRICELIST" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CLASS_PLANNER" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="PLANNER_BUYER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REGION" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="IS_PO_REQUIRED" Type="Boolean" />
+          <Property Name="IS_TAXABLE" Type="Boolean" />
+          <Property Name="TAXZONE" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="FED_TAX_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="ST_TAX_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="JDE_CODE_25" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="JDE_CODE_25_DESC" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="INV_CONSOLIDATION" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="EDI_EMAIL" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="INV_PRINT_OPT" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="IS_CURENT_CUST" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="ARR_ACCOUNT" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="REMIT_TO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="INVOICE_EMAIL" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="SITE" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblCustomerReference" Relationship="CoreDBModel.FK_CustomerInfo_Customer" FromRole="tblCustomerInfo" ToRole="tblCustomerReference" />
+        </EntityType>
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="AddressType" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" Nullable="false" MaxLength="70" FixedLength="true" Unicode="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CountryId" Type="Int64" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblCountry" Relationship="CoreDBModel.FK_Country_Address" FromRole="tblAddress" ToRole="TblCountry" />
+          <NavigationProperty Name="tblCustomerReference" Relationship="CoreDBModel.FK_tblCustomerReference_Address" FromRole="tblAddress" ToRole="tblCustomerReference" />
+        </EntityType>
+        <EntityType Name="tblCustomerReference">
+          <Key>
+            <PropertyRef Name="CustomerCode" />
+          </Key>
+          <Property Name="ReferenceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Short_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblAddresses" Relationship="CoreDBModel.FK_tblCustomerReference_Address" FromRole="tblCustomerReference" ToRole="tblAddress" />
+          <NavigationProperty Name="tblContacts" Relationship="CoreDBModel.FK_Contact_Customer" FromRole="tblCustomerReference" ToRole="tblContact" />
+          <NavigationProperty Name="tblCustomerInfoes" Relationship="CoreDBModel.FK_CustomerInfo_Customer" FromRole="tblCustomerReference" ToRole="tblCustomerInfo" />
+          <NavigationProperty Name="tblFoodSales" Relationship="CoreDBModel.FK_tblFoodSaleSale_tblReference" FromRole="tblCustomerReference" ToRole="tblFoodSale" />
+          <NavigationProperty Name="tblReturns" Relationship="CoreDBModel.FK_tblReturn_tblReference" FromRole="tblCustomerReference" ToRole="tblReturn" />
+          <NavigationProperty Name="tblBeverageSales" Relationship="CoreDBModel.FK_tblBeverageSale_tblReference" FromRole="tblCustomerReference" ToRole="tblBeverageSale" />
+        </EntityType>
+        <Association Name="FK_Country_Address">
+          <End Type="CoreDBModel.TblCountry" Role="TblCountry" Multiplicity="1" />
+          <End Type="CoreDBModel.tblAddress" Role="tblAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCountry">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="tblAddress">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerReference_Address">
+          <End Type="CoreDBModel.tblCustomerReference" Role="tblCustomerReference" Multiplicity="1" />
+          <End Type="CoreDBModel.tblAddress" Role="tblAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblAddress">
+              <PropertyRef Name="CustomerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Customer">
+          <End Type="CoreDBModel.tblCustomerReference" Role="tblCustomerReference" Multiplicity="0..1" />
+          <End Type="CoreDBModel.tblContact" Role="tblContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblContact">
+              <PropertyRef Name="CustomerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerInfo_Customer">
+          <End Type="CoreDBModel.tblCustomerReference" Role="tblCustomerReference" Multiplicity="1" />
+          <End Type="CoreDBModel.tblCustomerInfo" Role="tblCustomerInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblCustomerInfo">
+              <PropertyRef Name="CustomerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFoodSaleSale_tblReference">
+          <End Type="CoreDBModel.tblCustomerReference" Role="tblCustomerReference" Multiplicity="0..1" />
+          <End Type="CoreDBModel.tblFoodSale" Role="tblFoodSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblFoodSale">
+              <PropertyRef Name="Point_of_Origin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblReturn_tblReference">
+          <End Type="CoreDBModel.tblCustomerReference" Role="tblCustomerReference" Multiplicity="1" />
+          <End Type="CoreDBModel.tblReturn" Role="tblReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblReturn">
+              <PropertyRef Name="From_Ball_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblBeverageSale">
+          <Key>
+            <PropertyRef Name="BeverageSaleId" />
+          </Key>
+          <Property Name="BeverageSaleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bol_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Item_Code" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialId" Type="Int64" Nullable="false" />
+          <Property Name="Ship_To" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_To_Aplha_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sold_To" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sold_To_Alpha_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_From" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ship_Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Promised_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Promised_Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Carrier" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trailer_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Seal_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_PO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Release" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Reference" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Item_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Eaches" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Item" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Item_Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Neck_Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CAN_END" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblMaterial_Handling" Relationship="CoreDBModel.FK_tblBeverageSale_tblMaterial" FromRole="tblBeverageSale" ToRole="tblMaterial_Handling" />
+          <NavigationProperty Name="tblProduct_Reference" Relationship="CoreDBModel.FK_tblBeverageSale_tblproductReference" FromRole="tblBeverageSale" ToRole="tblProduct_Reference" />
+          <NavigationProperty Name="tblCustomerReference" Relationship="CoreDBModel.FK_tblBeverageSale_tblReference" FromRole="tblBeverageSale" ToRole="tblCustomerReference" />
+        </EntityType>
+        <Association Name="FK_tblBeverageSale_tblMaterial">
+          <End Type="CoreDBModel.tblMaterial_Handling" Role="tblMaterial_Handling" Multiplicity="1" />
+          <End Type="CoreDBModel.tblBeverageSale" Role="tblBeverageSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMaterial_Handling">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="tblBeverageSale">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBeverageSale_tblproductReference">
+          <End Type="CoreDBModel.tblProduct_Reference" Role="tblProduct_Reference" Multiplicity="1" />
+          <End Type="CoreDBModel.tblBeverageSale" Role="tblBeverageSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct_Reference">
+              <PropertyRef Name="Item_Code" />
+            </Principal>
+            <Dependent Role="tblBeverageSale">
+              <PropertyRef Name="Item_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBeverageSale_tblReference">
+          <End Type="CoreDBModel.tblCustomerReference" Role="tblCustomerReference" Multiplicity="1" />
+          <End Type="CoreDBModel.tblBeverageSale" Role="tblBeverageSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerReference">
+              <PropertyRef Name="CustomerCode" />
+            </Principal>
+            <Dependent Role="tblBeverageSale">
+              <PropertyRef Name="Ship_To" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoreDBModelStoreContainer" CdmEntityContainer="CoreDBEntities">
+          <EntitySetMapping Name="tblFoodSales">
+            <EntityTypeMapping TypeName="CoreDBModel.tblFoodSale">
+              <MappingFragment StoreEntitySet="tblFoodSale">
+                <ScalarProperty Name="FoodSaleId" ColumnName="FoodSaleId" />
+                <ScalarProperty Name="Bill_of_Landing" ColumnName="Bill_of_Landing" />
+                <ScalarProperty Name="Ship_Site" ColumnName="Ship_Site" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Ship_Date" ColumnName="Ship_Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Point_of_Origin" ColumnName="Point_of_Origin" />
+                <ScalarProperty Name="Item_Number" ColumnName="Item_Number" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+                <ScalarProperty Name="Ship_To" ColumnName="Ship_To" />
+                <ScalarProperty Name="Sort_Name" ColumnName="Sort_Name" />
+                <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+                <ScalarProperty Name="Truc_Car" ColumnName="Truc_Car" />
+                <ScalarProperty Name="Seals" ColumnName="Seals" />
+                <ScalarProperty Name="Biller" ColumnName="Biller" />
+                <ScalarProperty Name="Loader" ColumnName="Loader" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMaterial_Handling">
+            <EntityTypeMapping TypeName="CoreDBModel.tblMaterial_Handling">
+              <MappingFragment StoreEntitySet="tblMaterial_Handling">
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Material_Desc" ColumnName="Material_Desc" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPlants">
+            <EntityTypeMapping TypeName="CoreDBModel.tblPlant">
+              <MappingFragment StoreEntitySet="tblPlant">
+                <ScalarProperty Name="PlantId" ColumnName="PlantId" />
+                <ScalarProperty Name="Ship_From" ColumnName="Ship_From" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+                <ScalarProperty Name="Pallet_Capacity" ColumnName="Pallet_Capacity" />
+                <ScalarProperty Name="Square_Footage" ColumnName="Square_Footage" />
+                <ScalarProperty Name="Clear_Height" ColumnName="Clear_Height" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Contract_Type" ColumnName="Contract_Type" />
+                <ScalarProperty Name="Use" ColumnName="Use" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="CoreDBModel.tblProduct">
+              <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Item_Number" ColumnName="Item_Number" />
+                <ScalarProperty Name="Item_Group" ColumnName="Item_Group" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Customer_Group" ColumnName="Customer_Group" />
+                <ScalarProperty Name="Material_Type" ColumnName="Material_Type" />
+                <ScalarProperty Name="Colors" ColumnName="Colors" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+                <ScalarProperty Name="Grouping" ColumnName="Grouping" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProduct_Reference">
+            <EntityTypeMapping TypeName="CoreDBModel.tblProduct_Reference">
+              <MappingFragment StoreEntitySet="tblProduct_Reference">
+                <ScalarProperty Name="ProductReferenceId" ColumnName="ProductReferenceId" />
+                <ScalarProperty Name="Item_Code" ColumnName="Item_Code" />
+                <ScalarProperty Name="Item_Desc" ColumnName="Item_Desc" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblReturns">
+            <EntityTypeMapping TypeName="CoreDBModel.tblReturn">
+              <MappingFragment StoreEntitySet="tblReturn">
+                <ScalarProperty Name="ReturnId" ColumnName="ReturnId" />
+                <ScalarProperty Name="Transfer" ColumnName="Transfer" />
+                <ScalarProperty Name="Shipper_PO" ColumnName="Shipper_PO" />
+                <ScalarProperty Name="Pro_Num" ColumnName="Pro_Num" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="To_NT_Code" ColumnName="To_NT_Code" />
+                <ScalarProperty Name="To_Name" ColumnName="To_Name" />
+                <ScalarProperty Name="From_NT_Code" ColumnName="From_NT_Code" />
+                <ScalarProperty Name="From_Ball_ID" ColumnName="From_Ball_ID" />
+                <ScalarProperty Name="From_Name" ColumnName="From_Name" />
+                <ScalarProperty Name="Item_NT" ColumnName="Item_NT" />
+                <ScalarProperty Name="Item_Ball" ColumnName="Item_Ball" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Scrap" ColumnName="Scrap" />
+                <ScalarProperty Name="Special_Cleaning" ColumnName="Special_Cleaning" />
+                <ScalarProperty Name="Repair" ColumnName="Repair" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWarehouses">
+            <EntityTypeMapping TypeName="CoreDBModel.tblWarehouse">
+              <MappingFragment StoreEntitySet="tblWarehouse">
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="Ship_To" ColumnName="Ship_To" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+                <ScalarProperty Name="Pallet_Capacity" ColumnName="Pallet_Capacity" />
+                <ScalarProperty Name="Square_Footage" ColumnName="Square_Footage" />
+                <ScalarProperty Name="Clear_Height" ColumnName="Clear_Height" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Contract_Type" ColumnName="Contract_Type" />
+                <ScalarProperty Name="Use" ColumnName="Use" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContacts">
+            <EntityTypeMapping TypeName="CoreDBModel.tblContact">
+              <MappingFragment StoreEntitySet="tblContact">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCountries">
+            <EntityTypeMapping TypeName="CoreDBModel.TblCountry">
+              <MappingFragment StoreEntitySet="TblCountry">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="NumericIsoCode" ColumnName="NumericIsoCode" />
+                <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterIsoCode" />
+                <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterIsoCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerInfoes">
+            <EntityTypeMapping TypeName="CoreDBModel.tblCustomerInfo">
+              <MappingFragment StoreEntitySet="tblCustomerInfo">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SITE" ColumnName="SITE" />
+                <ScalarProperty Name="INVOICE_EMAIL" ColumnName="INVOICE_EMAIL" />
+                <ScalarProperty Name="REMIT_TO" ColumnName="REMIT_TO" />
+                <ScalarProperty Name="ARR_ACCOUNT" ColumnName="ARR_ACCOUNT" />
+                <ScalarProperty Name="IS_CURENT_CUST" ColumnName="IS_CURENT_CUST" />
+                <ScalarProperty Name="INV_PRINT_OPT" ColumnName="INV_PRINT_OPT" />
+                <ScalarProperty Name="EDI_EMAIL" ColumnName="EDI_EMAIL" />
+                <ScalarProperty Name="INV_CONSOLIDATION" ColumnName="INV_CONSOLIDATION" />
+                <ScalarProperty Name="JDE_CODE_25_DESC" ColumnName="JDE_CODE_25_DESC" />
+                <ScalarProperty Name="JDE_CODE_25" ColumnName="JDE_CODE_25" />
+                <ScalarProperty Name="ST_TAX_ID" ColumnName="ST_TAX_ID" />
+                <ScalarProperty Name="FED_TAX_ID" ColumnName="FED_TAX_ID" />
+                <ScalarProperty Name="TAXZONE" ColumnName="TAXZONE" />
+                <ScalarProperty Name="IS_TAXABLE" ColumnName="IS_TAXABLE" />
+                <ScalarProperty Name="IS_PO_REQUIRED" ColumnName="IS_PO_REQUIRED" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="PLANNER_BUYER_NAME" ColumnName="PLANNER_BUYER_NAME" />
+                <ScalarProperty Name="CLASS_PLANNER" ColumnName="CLASS_PLANNER" />
+                <ScalarProperty Name="PRICELIST" ColumnName="PRICELIST" />
+                <ScalarProperty Name="IS_CREDI_TWATCH" ColumnName="IS_CREDI_TWATCH" />
+                <ScalarProperty Name="IS_CREDIT_HOLD" ColumnName="IS_CREDIT_HOLD" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="TERMS" ColumnName="TERMS" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CustomerInfoId" ColumnName="CustomerInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAddresses">
+            <EntityTypeMapping TypeName="CoreDBModel.tblAddress">
+              <MappingFragment StoreEntitySet="tblAddress">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerReferences">
+            <EntityTypeMapping TypeName="CoreDBModel.tblCustomerReference">
+              <MappingFragment StoreEntitySet="tblCustomerReference">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Short_Name" ColumnName="Short_Name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBeverageSales">
+            <EntityTypeMapping TypeName="CoreDBModel.tblBeverageSale">
+              <MappingFragment StoreEntitySet="tblBeverageSale">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CAN_END" ColumnName="CAN_END" />
+                <ScalarProperty Name="Neck_Size" ColumnName="Neck_Size" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Item_Description" ColumnName="Item_Description" />
+                <ScalarProperty Name="Customer_Item" ColumnName="Customer_Item" />
+                <ScalarProperty Name="Eaches" ColumnName="Eaches" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Item_Number" ColumnName="Item_Number" />
+                <ScalarProperty Name="Customer_Reference" ColumnName="Customer_Reference" />
+                <ScalarProperty Name="Customer_Release" ColumnName="Customer_Release" />
+                <ScalarProperty Name="Customer_PO" ColumnName="Customer_PO" />
+                <ScalarProperty Name="Seal_Number" ColumnName="Seal_Number" />
+                <ScalarProperty Name="Trailer_Number" ColumnName="Trailer_Number" />
+                <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+                <ScalarProperty Name="Promised_Time" ColumnName="Promised_Time" />
+                <ScalarProperty Name="Promised_Date" ColumnName="Promised_Date" />
+                <ScalarProperty Name="Ship_Time" ColumnName="Ship_Time" />
+                <ScalarProperty Name="Ship_Date" ColumnName="Ship_Date" />
+                <ScalarProperty Name="Ship_From" ColumnName="Ship_From" />
+                <ScalarProperty Name="Sold_To_Alpha_Name" ColumnName="Sold_To_Alpha_Name" />
+                <ScalarProperty Name="Sold_To" ColumnName="Sold_To" />
+                <ScalarProperty Name="Ship_To_Aplha_Name" ColumnName="Ship_To_Aplha_Name" />
+                <ScalarProperty Name="Ship_To" ColumnName="Ship_To" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Item_Code" ColumnName="Item_Code" />
+                <ScalarProperty Name="Bol_Number" ColumnName="Bol_Number" />
+                <ScalarProperty Name="BeverageSaleId" ColumnName="BeverageSaleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

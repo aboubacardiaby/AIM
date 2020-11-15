@@ -633,7 +633,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CTPS\Data\Data.csproj">
+    <ProjectReference Include="..\Data\Data.csproj">
       <Project>{5d2b45b4-0aae-412b-a97f-4bfa7e3065ce}</Project>
       <Name>Data</Name>
     </ProjectReference>
